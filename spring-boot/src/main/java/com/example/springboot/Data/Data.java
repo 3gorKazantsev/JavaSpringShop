@@ -48,6 +48,12 @@ public class Data {
                     .type(types.get(5))
                     .size(43)
                     .build());
+            add(Footwear.builder()
+                    .id(UUID.randomUUID())
+                    .name("Reebok Classic")
+                    .type(types.get(4))
+                    .size(45)
+                    .build());
         }
     };
 }
