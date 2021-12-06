@@ -1,18 +1,14 @@
 package com.example.springboot.services;
 
 import com.example.springboot.Data.Data;
-import com.example.springboot.model.Clothing;
-import com.example.springboot.model.Footwear;
 import com.example.springboot.model.Product;
 import com.example.springboot.model.Type;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class Service {
+public class ProductService {
 
     public List<Product> getAllProducts() {
         return Data.products;
@@ -55,10 +51,5 @@ public class Service {
         }
 
         return products;
-    }
-
-    public Clothing addClothing(Clothing clothing) {
-        Data.products.add(clothing);
-        return clothing;
     }
 }
