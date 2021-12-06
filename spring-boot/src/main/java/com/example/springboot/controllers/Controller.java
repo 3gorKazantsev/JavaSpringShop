@@ -1,11 +1,10 @@
 package com.example.springboot.controllers;
 
+import com.example.springboot.model.Clothing;
 import com.example.springboot.model.Product;
 import com.example.springboot.model.Type;
 import com.example.springboot.services.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,11 +23,14 @@ public class Controller {
         return service.getAllProducts();
     }
 
-    @GetMapping("/product")
-    public Product getProduct(
-            @RequestParam(value = "id") String id
-    ) {
+    @GetMapping("/products/{id}")
+    public Product getProduct(@PathVariable String id) {
         return service.findProductById(id);
+    }
+
+    @GetMapping("/products/type/{typeId}")
+    public List<Product> getProductsByType(@PathVariable Long typeId) {
+        return service.getProductsByType(typeId);
     }
 
     @GetMapping("/types")
@@ -36,17 +38,13 @@ public class Controller {
         return service.getAllTypes();
     }
 
-    @GetMapping("/type")
-    public Type getType(
-            @RequestParam(value = "id") String id
-    ) {
+    @GetMapping("/types/{id}")
+    public Type getType(@PathVariable String id) {
         return service.findTypeById(id);
     }
 
-    @GetMapping("/by_type")
-    public List<Product> getProductsByType(
-            @RequestParam(value = "type") Long typeId
-    ) {
-        return service.getProductsByType(typeId);
+    @PostMapping("/products/new/{isFootwear}")
+    public Product addProduct(@PathVariable boolean isFootwear) {
+        return service.addClothing(isFootwear);
     }
 }

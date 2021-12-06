@@ -1,6 +1,8 @@
 package com.example.springboot.services;
 
 import com.example.springboot.Data.Data;
+import com.example.springboot.model.Clothing;
+import com.example.springboot.model.Footwear;
 import com.example.springboot.model.Product;
 import com.example.springboot.model.Type;
 
@@ -51,5 +53,18 @@ public class Service {
         }
 
         return products;
+    }
+
+    public Product addClothing(boolean isFootwear) {
+        Product product;
+
+        if (isFootwear)
+            product = new Footwear(UUID.randomUUID(), "some name", Data.types.get(0), 52);
+        else
+            product = new Clothing(UUID.randomUUID(), "some name", Data.types.get(3),"XS");
+
+        Data.products.add(product);
+
+        return product;
     }
 }

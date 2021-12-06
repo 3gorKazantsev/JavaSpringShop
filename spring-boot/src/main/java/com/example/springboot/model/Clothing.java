@@ -6,7 +6,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-@ToString(callSuper = true)
+@AllArgsConstructor
 public class Clothing extends Product {
 
     private String size;
