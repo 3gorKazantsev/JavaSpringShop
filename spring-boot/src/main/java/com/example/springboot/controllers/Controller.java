@@ -43,8 +43,8 @@ public class Controller {
         return service.findTypeById(id);
     }
 
-    @PostMapping("/products/new/{isFootwear}")
-    public Product addProduct(@PathVariable boolean isFootwear) {
-        return service.addClothing(isFootwear);
+    @PostMapping("/clothing/new")
+    public Clothing addClothing(@RequestBody Clothing clothing) {
+        return service.addClothing(clothing);
     }
 }

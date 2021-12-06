@@ -5,6 +5,8 @@ import com.example.springboot.model.Clothing;
 import com.example.springboot.model.Footwear;
 import com.example.springboot.model.Product;
 import com.example.springboot.model.Type;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,16 +57,8 @@ public class Service {
         return products;
     }
 
-    public Product addClothing(boolean isFootwear) {
-        Product product;
-
-        if (isFootwear)
-            product = new Footwear(UUID.randomUUID(), "some name", Data.types.get(0), 52);
-        else
-            product = new Clothing(UUID.randomUUID(), "some name", Data.types.get(3),"XS");
-
-        Data.products.add(product);
-
-        return product;
+    public Clothing addClothing(Clothing clothing) {
+        Data.products.add(clothing);
+        return clothing;
     }
 }
