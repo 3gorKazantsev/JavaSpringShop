@@ -15,11 +15,16 @@ public class ClothingController {
 
     @PostMapping("/new")
     public Clothing addClothing(@RequestBody Clothing clothing) {
-        return clothingService.addClothing(clothing);
+        return clothingService.add(clothing);
     }
 
     @PostMapping("/del")
     public Clothing delClothing(@RequestBody Clothing clothing) {
-        return clothingService.delClothing(clothing);
+        return clothingService.delete(clothing);
+    }
+
+    @PostMapping("/edit")
+    public Clothing editClothing(@RequestBody Clothing clothing) {
+        return clothingService.edit(clothing);
     }
 }

@@ -15,11 +15,16 @@ public class FootwearController {
 
     @PostMapping("/new")
     public Footwear addFootwear(@RequestBody Footwear footwear) {
-        return footwearService.addFootwear(footwear);
+        return footwearService.add(footwear);
     }
 
     @PostMapping("/del")
     public Footwear delFootwear(@RequestBody Footwear footwear) {
-        return footwearService.delFootwear(footwear);
+        return footwearService.delete(footwear);
+    }
+
+    @PostMapping("/edit")
+    public Footwear editFootwear(@RequestBody Footwear footwear) {
+        return footwearService.edit(footwear);
     }
 }
