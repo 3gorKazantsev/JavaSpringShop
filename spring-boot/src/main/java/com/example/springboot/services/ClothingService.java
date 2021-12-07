@@ -2,9 +2,11 @@ package com.example.springboot.services;
 
 import com.example.springboot.Data.Data;
 import com.example.springboot.model.Clothing;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@Service
 public class ClothingService {
 
     public Clothing add(Clothing clothing) {
