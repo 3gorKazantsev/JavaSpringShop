@@ -1,6 +1,6 @@
 package com.example.springboot.services;
 
-import com.example.springboot.Data.Data;
+import com.example.springboot.data.Data;
 import com.example.springboot.model.Clothing;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.example.springboot.Data;
+package com.example.springboot.data;
 
 import com.example.springboot.model.Clothing;
 import com.example.springboot.model.Footwear;
@@ -12,13 +12,13 @@ public class Data {
 
     public static ArrayList<Type> types = new ArrayList<>() {
         {
-            add(new Type(0L, "Футболка"));
-            add(new Type(1L, "Рубашка"));
-            add(new Type(2L, "Брюки"));
-            add(new Type(3L, "Джинсы"));
-            add(new Type(4L, "Кроссовки"));
-            add(new Type(5L, "Ботинки"));
-            add(new Type(6L, "Туфли"));
+            add(new Type(0, "Футболка"));
+            add(new Type(1, "Рубашка"));
+            add(new Type(2, "Брюки"));
+            add(new Type(3, "Джинсы"));
+            add(new Type(4, "Кроссовки"));
+            add(new Type(5, "Ботинки"));
+            add(new Type(6, "Туфли"));
         }
     };
 

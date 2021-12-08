@@ -3,6 +3,7 @@ package com.example.springboot.controllers;
 import com.example.springboot.model.Product;
 import com.example.springboot.model.Type;
 import com.example.springboot.services.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,9 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class ProductController {
 
-    private final ProductService productService = new ProductService();
+    private final ProductService productService;
 
     @GetMapping("/")
     public String start() {
@@ -30,17 +32,7 @@ public class ProductController {
     }
 
     @GetMapping("/products/type/{typeId}")
-    public List<Product> getProductsByType(@PathVariable Long typeId) {
+    public List<Product> getProductsByType(@PathVariable int typeId) {
         return productService.getProductsByType(typeId);
-    }
-
-    @GetMapping("/types")
-    public List<Type> types() {
-        return productService.getAllTypes();
-    }
-
-    @GetMapping("/types/{id}")
-    public Type getType(@PathVariable String id) {
-        return productService.findTypeById(id);
     }
 }

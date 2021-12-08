@@ -7,6 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class Type {
 
-    private Long id;
+    private int id;
     private String name;
 }

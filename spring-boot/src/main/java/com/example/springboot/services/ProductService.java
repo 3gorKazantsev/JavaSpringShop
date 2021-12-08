@@ -1,13 +1,18 @@
 package com.example.springboot.services;
 
-import com.example.springboot.Data.Data;
+import com.example.springboot.dao.TypeDao;
+import com.example.springboot.data.Data;
 import com.example.springboot.model.Product;
 import com.example.springboot.model.Type;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@Service
+@RequiredArgsConstructor
 public class ProductService {
 
     public List<Product> getAllProducts() {
@@ -26,27 +31,11 @@ public class ProductService {
         return product;
     }
 
-    public List<Type> getAllTypes() {
-        return Data.types;
-    }
-
-    public Type findTypeById(String id) {
-        Type type = null;
-
-        // поиск типа с указанным ID в списке типов
-        for (Type t : Data.types) {
-            if (t.getId().toString().equals(id))
-                type = t;
-        }
-
-        return type;
-    }
-
-    public List<Product> getProductsByType(Long typeId) {
+    public List<Product> getProductsByType(int typeId) {
         ArrayList<Product> products = new ArrayList<>();
 
         for (Product p : Data.products) {
-            if (p.getType().getId().equals(typeId))
+            if (p.getType().getId() == typeId)
                 products.add(p);
         }
 
