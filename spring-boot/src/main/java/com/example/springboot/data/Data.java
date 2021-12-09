@@ -24,36 +24,11 @@ public class Data {
 
     public static ArrayList<Product> products = new ArrayList<>() {
         {
-            add(Clothing.builder()
-                    .id(UUID.randomUUID())
-                    .name("Рубашка Levis")
-                    .type(types.get(1))
-                    .size("M")
-                    .build());
-            add(Clothing.builder()
-                    .id(UUID.randomUUID())
-                    .name("Брюки Zara")
-                    .type(types.get(2))
-                    .size("M")
-                    .build());
-            add(Footwear.builder()
-                    .id(UUID.randomUUID())
-                    .name("Nike Cortez")
-                    .type(types.get(4))
-                    .size(42)
-                    .build());
-            add(Footwear.builder()
-                    .id(UUID.randomUUID())
-                    .name("Dr. Martens 1490")
-                    .type(types.get(5))
-                    .size(43)
-                    .build());
-            add(Footwear.builder()
-                    .id(UUID.randomUUID())
-                    .name("Reebok Classic")
-                    .type(types.get(4))
-                    .size(45)
-                    .build());
+            add(new Clothing(UUID.randomUUID(), "Рубашка Levis", types.get(1), "M"));
+            add(new Clothing(UUID.randomUUID(), "Брюки Zara", types.get(2), "M"));
+            add(new Footwear(UUID.randomUUID(), "Nike Cortez", types.get(4), 42));
+            add(new Footwear(UUID.randomUUID(), "Dr. Martens 1490", types.get(5), 43));
+            add(new Footwear(UUID.randomUUID(), "Reebok Classic", types.get(4), 45));
         }
     };
 }
