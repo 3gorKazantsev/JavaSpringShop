@@ -3,10 +3,7 @@ package com.example.springboot.controllers;
 import com.example.springboot.model.Type;
 import com.example.springboot.services.TypeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,13 +14,28 @@ public class TypeController {
 
     private final TypeService typeService;
 
-    @GetMapping("/")
-    public List<Type> types() {
-        return typeService.getAllTypes();
+    @GetMapping()
+    public List<Type> getAll() {
+        return typeService.getAll();
     }
 
     @GetMapping("/{id}")
-    public Type getType(@PathVariable int id) {
-        return typeService.findTypeById(id);
+    public Type getById(@PathVariable int id) {
+        return typeService.getById(id);
+    }
+
+    @PostMapping("/new")
+    public Type createType(@RequestBody Type type) {
+        return typeService.create(type);
+    }
+
+    @PostMapping("/update")
+    public Type updateType(@RequestBody Type type) {
+        return typeService.update(type);
+    }
+
+    @PostMapping("/del/{id}")
+    public Type deleteType(@PathVariable int id) {
+        return typeService.delete(id);
     }
 }

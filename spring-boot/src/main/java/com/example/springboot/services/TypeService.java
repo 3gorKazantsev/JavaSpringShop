@@ -13,11 +13,23 @@ public class TypeService {
 
     private final TypeDao typeDao;
 
-    public List<Type> getAllTypes() {
-        return typeDao.getAllTypes();
+    public List<Type> getAll() {
+        return typeDao.getAll();
     }
 
-    public Type findTypeById(int id) {
-        return typeDao.findTypeById(id);
+    public Type getById(int id) {
+        return typeDao.getById(id);
+    }
+
+    public Type create(Type type) {
+        return typeDao.create(type);
+    }
+
+    public Type update(Type type) {
+        return typeDao.update(type);
+    }
+
+    public Type delete(int id) {
+        return typeDao.delete(id);
     }
 }

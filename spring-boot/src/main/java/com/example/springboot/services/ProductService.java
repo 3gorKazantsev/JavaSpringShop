@@ -1,9 +1,7 @@
 package com.example.springboot.services;
 
-import com.example.springboot.dao.TypeDao;
 import com.example.springboot.data.Data;
 import com.example.springboot.model.Product;
-import com.example.springboot.model.Type;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
