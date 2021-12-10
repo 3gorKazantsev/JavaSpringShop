@@ -10,8 +10,8 @@ public class Footwear extends Product {
 
     private int size;
 
-    public Footwear(UUID id, String name, Type type, int size) {
-        super(id, name, type);
+    public Footwear(UUID id, String name, Category category, int size) {
+        super(id, name, category);
         this.size = size;
     }
 }

@@ -11,6 +11,6 @@ public abstract class Product {
 
     private UUID id;
     private String name;
-    private Type type;
+    private Category category;
 
 }

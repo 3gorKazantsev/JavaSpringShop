@@ -33,7 +33,7 @@ public class ProductService {
         ArrayList<Product> products = new ArrayList<>();
 
         for (Product p : Data.products) {
-            if (p.getType().getId() == typeId)
+            if (p.getCategory().getId() == typeId)
                 products.add(p);
         }
 
