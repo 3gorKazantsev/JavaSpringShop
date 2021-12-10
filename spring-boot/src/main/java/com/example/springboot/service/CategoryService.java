@@ -1,4 +1,4 @@
-package com.example.springboot.services;
+package com.example.springboot.service;
 
 import com.example.springboot.dao.CategoryDao;
 import com.example.springboot.model.Category;
@@ -13,23 +13,23 @@ public class CategoryService {
 
     private final CategoryDao categoryDao;
 
-    public List<Category> getAll() {
+    public List<Category> getAllCategory() {
         return categoryDao.getAll();
     }
 
-    public Category getById(int id) {
+    public Category getCategoryById(int id) {
         return categoryDao.getById(id);
     }
 
-    public Category create(Category category) {
+    public Category createCategory(Category category) {
         return categoryDao.create(category);
     }
 
-    public Category update(Category category) {
+    public Category updateCategory(Category category) {
         return categoryDao.update(category);
     }
 
-    public Category delete(int id) {
-        return categoryDao.delete(id);
+    public Category deleteCategoryById(int id) {
+        return categoryDao.deleteById(id);
     }
 }

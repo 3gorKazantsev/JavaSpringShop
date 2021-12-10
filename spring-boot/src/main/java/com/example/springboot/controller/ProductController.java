@@ -1,7 +1,7 @@
-package com.example.springboot.controllers;
+package com.example.springboot.controller;
 
 import com.example.springboot.model.Product;
-import com.example.springboot.services.ProductService;
+import com.example.springboot.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

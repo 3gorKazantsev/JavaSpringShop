@@ -1,7 +1,7 @@
-package com.example.springboot.controllers;
+package com.example.springboot.controller;
 
 import com.example.springboot.model.Footwear;
-import com.example.springboot.services.FootwearService;
+import com.example.springboot.service.FootwearService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

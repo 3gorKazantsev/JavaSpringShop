@@ -1,27 +1,28 @@
 package com.example.springboot.dao;
 
-import com.example.springboot.mappers.CategoryMapper;
+import com.example.springboot.config.mapper.CategoryMapper;
 import com.example.springboot.model.Category;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Component
+@Repository
 @RequiredArgsConstructor
 public class CategoryDao {
 
     private final JdbcTemplate jdbcTemplate;
+    private final CategoryMapper categoryMapper;
 
     public List<Category> getAll() {
         String query = "SELECT * FROM \"Category\" ORDER BY id";
-        return jdbcTemplate.query(query, new CategoryMapper());
+        return jdbcTemplate.query(query, categoryMapper);
     }
 
     public Category getById(int id) {
         String query = "SELECT * FROM \"Category\" WHERE id=?";
-        return jdbcTemplate.queryForObject(query, new CategoryMapper(), id);
+        return jdbcTemplate.queryForObject(query, categoryMapper, id);
     }
 
     public Category create(Category category) {
@@ -36,7 +37,7 @@ public class CategoryDao {
         return category;
     }
 
-    public Category delete(int id) {
+    public Category deleteById(int id) {
         Category deletedCategory = this.getById(id);
         String query = "DELETE FROM \"Category\" WHERE id=?";
         jdbcTemplate.update(query, id);
