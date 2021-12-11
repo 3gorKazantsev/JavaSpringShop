@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/clothing")
@@ -20,7 +21,7 @@ public class ClothingController {
     }
 
     @GetMapping("/{id}")
-    public Clothing getClothingById(@PathVariable int id) {
+    public Clothing getClothingById(@PathVariable UUID id) {
         return clothingService.getClothingById(id);
     }
 
@@ -29,13 +30,13 @@ public class ClothingController {
         return clothingService.createClothing(clothing);
     }
 
-    @PostMapping("/update")
+    @PostMapping("/upd")
     public Clothing updateClothing(@RequestBody Clothing clothing) {
         return clothingService.updateCategory(clothing);
     }
 
     @PostMapping("/del/{id}")
-    public Clothing deleteClothingById(@PathVariable int id) {
+    public Clothing deleteClothingById(@PathVariable UUID id) {
         return clothingService.deleteClothingById(id);
     }
 }

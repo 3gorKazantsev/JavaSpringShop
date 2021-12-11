@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -17,7 +18,7 @@ public class ClothingService {
         return clothingDao.getAll();
     }
 
-    public Clothing getClothingById(int id) {
+    public Clothing getClothingById(UUID id) {
         return clothingDao.getById(id);
     }
 
@@ -29,7 +30,7 @@ public class ClothingService {
         return clothingDao.update(clothing);
     }
 
-    public Clothing deleteClothingById(int id) {
-        return clothingDao.delete(id);
+    public Clothing deleteClothingById(UUID id) {
+        return clothingDao.deleteById(id);
     }
 }

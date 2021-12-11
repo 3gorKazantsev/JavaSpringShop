@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/type")
+@RequestMapping("/category")
 public class CategoryController {
 
     private final CategoryService categoryService;
@@ -29,7 +29,7 @@ public class CategoryController {
         return categoryService.createCategory(category);
     }
 
-    @PostMapping("/update")
+    @PostMapping("/upd")
     public Category updateCategory(@RequestBody Category category) {
         return categoryService.updateCategory(category);
     }
