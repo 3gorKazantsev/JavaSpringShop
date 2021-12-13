@@ -1,35 +1,37 @@
 package com.example.springboot.service;
 
+import com.example.springboot.dao.FootwearDao;
 import com.example.springboot.data.Data;
 import com.example.springboot.model.Footwear;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class FootwearService {
 
-    public Footwear add(Footwear footwear) {
-        Data.products.add(footwear);
-        return footwear;
+    private final FootwearDao footwearDao;
+
+    public List<Footwear> getAllClothing() {
+        return footwearDao.getAll();
     }
 
-    public Footwear delete(Footwear footwear) {
-        Data.products.remove(footwear);
-        return footwear;
+    public Footwear getFootwearById(UUID id) {
+        return footwearDao.getById(id);
     }
 
-    public Footwear edit(Footwear footwear) {
-        // сравнение по ID
-        UUID id = footwear.getId();
-        for (int i = 0; i < Data.products.size(); i++) {
-            if (id.equals(Data.products.get(i).getId())) {
-                Data.products.remove(i);
-                Data.products.add(i, footwear);
-                break;
-            }
-        }
+    public Footwear createClothing(Footwear footwear) {
+        return footwearDao.create(footwear);
+    }
 
-        return footwear;
+    public Footwear updateFootwear(Footwear footwear) {
+        return footwearDao.update(footwear);
+    }
+
+    public Footwear deleteFootwearById(UUID id) {
+        return footwearDao.delete(id);
     }
 }

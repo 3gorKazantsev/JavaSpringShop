@@ -11,6 +11,7 @@ import java.util.UUID;
 
 @Component
 public class ClothingMapper implements RowMapper<Clothing> {
+
     @Override
     public Clothing mapRow(ResultSet rs, int rowNum) throws SQLException {
 
