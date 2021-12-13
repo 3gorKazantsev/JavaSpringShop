@@ -1,7 +1,7 @@
 package com.example.springboot.dao;
 
 import com.example.springboot.config.mapper.CategoryMapper;
-import com.example.springboot.model.Category;
+import com.example.springboot.model.jdbc.Category;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

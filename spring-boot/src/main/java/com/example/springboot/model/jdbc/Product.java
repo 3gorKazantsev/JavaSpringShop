@@ -1,4 +1,4 @@
-package com.example.springboot.model;
+package com.example.springboot.model.jdbc;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,7 +1,7 @@
 package com.example.springboot.config.mapper;
 
-import com.example.springboot.model.Category;
-import com.example.springboot.model.Product;
+import com.example.springboot.model.jdbc.Category;
+import com.example.springboot.model.jdbc.Product;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

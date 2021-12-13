@@ -1,7 +1,9 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.model.Category;
-import com.example.springboot.service.CategoryService;
+import com.example.springboot.model.hibernate.CategoryH;
+import com.example.springboot.model.jdbc.Category;
+import com.example.springboot.service.hibernate.CategoryServiceH;
+import com.example.springboot.service.jdbc.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,15 +15,16 @@ import java.util.List;
 public class CategoryController {
 
     private final CategoryService categoryService;
+    private final CategoryServiceH categoryServiceH;
 
     @GetMapping()
-    public List<Category> getAllCategory() {
-        return categoryService.getAllCategory();
+    public List<CategoryH> getAllCategory() {
+        return categoryServiceH.getAllCategory();
     }
 
     @GetMapping("/{id}")
-    public Category getCategoryById(@PathVariable int id) {
-        return categoryService.getCategoryById(id);
+    public CategoryH getCategoryById(@PathVariable int id) {
+        return categoryServiceH.getCategoryById(id);
     }
 
     @PostMapping("/new")

@@ -1,7 +1,7 @@
 package com.example.springboot.dao;
 
 import com.example.springboot.config.mapper.ProductMapper;
-import com.example.springboot.model.Product;
+import com.example.springboot.model.jdbc.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;

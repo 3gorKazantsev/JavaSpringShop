@@ -1,7 +1,7 @@
-package com.example.springboot.service;
+package com.example.springboot.service.jdbc;
 
 import com.example.springboot.dao.CategoryDao;
-import com.example.springboot.model.Category;
+import com.example.springboot.model.jdbc.Category;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

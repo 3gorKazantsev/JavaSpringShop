@@ -1,7 +1,7 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.model.Clothing;
-import com.example.springboot.service.ClothingService;
+import com.example.springboot.model.jdbc.Clothing;
+import com.example.springboot.service.jdbc.ClothingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

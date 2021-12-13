@@ -1,7 +1,7 @@
-package com.example.springboot.service;
+package com.example.springboot.service.jdbc;
 
 import com.example.springboot.dao.FootwearDao;
-import com.example.springboot.model.Footwear;
+import com.example.springboot.model.jdbc.Footwear;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

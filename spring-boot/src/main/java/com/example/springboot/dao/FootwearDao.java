@@ -1,8 +1,7 @@
 package com.example.springboot.dao;
 
 import com.example.springboot.config.mapper.FootwearMapper;
-import com.example.springboot.model.Clothing;
-import com.example.springboot.model.Footwear;
+import com.example.springboot.model.jdbc.Footwear;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
