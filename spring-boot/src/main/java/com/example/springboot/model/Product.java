@@ -1,16 +1,18 @@
 package com.example.springboot.model;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.UUID;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public abstract class Product {
+@Getter
+@Setter
+public class Product extends ProductBase{
 
-    private UUID id;
-    private String name;
-    private Category category;
+    private String size;
 
+    public Product(UUID id, String name, Category category, String size) {
+        super(id, name, category);
+        this.size = size;
+    }
 }

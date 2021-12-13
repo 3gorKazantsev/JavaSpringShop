@@ -1,12 +1,12 @@
 package com.example.springboot.dao;
 
-import com.example.springboot.config.extractor.ProductExtractor;
+import com.example.springboot.config.mapper.ProductMapper;
+import com.example.springboot.model.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 @Repository
@@ -14,53 +14,53 @@ import java.util.UUID;
 public class ProductDao {
 
     private final JdbcTemplate jdbcTemplate;
-    private final ProductExtractor productExtractor;
+    private final ProductMapper productMapper;
 
-    public Map<UUID, List<Object>> getAll() {
+    public List<Product> getAll() {
         String query = """
-                SELECT  "Clothing".id   AS id,
-                        "Clothing".name AS name,
-                        "Category".id   AS category_id,
-                        "Category".name AS category_name,
-                        "Clothing".size AS size
+                SELECT  "Clothing".id   AS p_id,
+                        "Clothing".name AS p_name,
+                        "Category".id   AS c_id,
+                        "Category".name AS c_name,
+                        "Clothing".size AS p_size
                                FROM "Clothing"
                                         LEFT JOIN "Category"
                                                   ON "Clothing".category_id = "Category".id
                 UNION
-                SELECT  "Footwear".id   AS id,
-                        "Footwear".name AS name,
-                        "Category".id   AS category_id,
-                        "Category".name AS category_name,
-                        "Footwear".size::varchar AS size
+                SELECT  "Footwear".id   AS p_id,
+                        "Footwear".name AS p_name,
+                        "Category".id   AS c_id,
+                        "Category".name AS c_name,
+                        "Footwear".size::varchar AS p_size
                                FROM "Footwear"
                                         LEFT JOIN "Category"
                                                   ON "Footwear".category_id = "Category".id
                 """;
-        return jdbcTemplate.query(query, productExtractor);
+        return jdbcTemplate.query(query, productMapper);
     }
 
-    public Map<UUID, List<Object>> getById(UUID id) {
+    public List<Product> getById(UUID id) {
         String query = """
-                SELECT "Clothing".id   AS id,
-                       "Clothing".name AS name,
-                       "Category".id   AS category_id,
-                       "Category".name AS category_name,
-                       "Clothing".size AS size
+                SELECT "Clothing".id   AS p_id,
+                       "Clothing".name AS p_name,
+                       "Category".id   AS c_id,
+                       "Category".name AS c_name,
+                       "Clothing".size AS p_size
                 FROM "Clothing"
                          LEFT JOIN "Category"
                                    ON "Clothing".category_id = "Category".id
                 WHERE "Clothing".id = ?
                 UNION
-                SELECT "Footwear".id            AS id,
-                       "Footwear".name          AS name,
-                       "Category".id            AS category_id,
-                       "Category".name          AS category_name,
-                       "Footwear".size::varchar AS size
+                SELECT "Footwear".id            AS p_id,
+                       "Footwear".name          AS p_name,
+                       "Category".id            AS c_id,
+                       "Category".name          AS c_name,
+                       "Footwear".size::varchar AS p_size
                 FROM "Footwear"
                          LEFT JOIN "Category"
                                    ON "Footwear".category_id = "Category".id
                 WHERE "Footwear".id = ?;
                 """;
-        return jdbcTemplate.query(query, productExtractor, id, id);
+        return jdbcTemplate.query(query,productMapper, id, id);
     }
 }

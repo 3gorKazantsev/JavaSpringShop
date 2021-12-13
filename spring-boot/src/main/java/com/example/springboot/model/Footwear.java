@@ -6,7 +6,7 @@ import java.util.UUID;
 
 @Getter
 @Setter
-public class Footwear extends Product {
+public class Footwear extends ProductBase {
 
     private int size;
 
