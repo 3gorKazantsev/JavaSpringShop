@@ -5,6 +5,7 @@ import com.example.springboot.model.jdbc.Category;
 import com.example.springboot.service.hibernate.CategoryServiceH;
 import com.example.springboot.service.jdbc.CategoryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,27 +19,27 @@ public class CategoryController {
     private final CategoryServiceH categoryServiceH;
 
     @GetMapping()
-    public List<CategoryH> getAllCategory() {
+    public ResponseEntity<List<CategoryH>> getAllCategory() {
         return categoryServiceH.getAllCategory();
     }
 
     @GetMapping("/{id}")
-    public CategoryH getCategoryById(@PathVariable int id) {
+    public ResponseEntity<CategoryH> getCategoryById(@PathVariable int id) {
         return categoryServiceH.getCategoryById(id);
     }
 
     @PostMapping("/new")
-    public Category createCategory(@RequestBody Category category) {
-        return categoryService.createCategory(category);
+    public ResponseEntity<CategoryH> createCategory(@RequestBody CategoryH category) {
+        return categoryServiceH.createCategory(category);
     }
 
     @PostMapping("/upd")
-    public Category updateCategory(@RequestBody Category category) {
-        return categoryService.updateCategory(category);
+    public ResponseEntity<CategoryH> updateCategory(@RequestBody CategoryH category) {
+        return categoryServiceH.updateCategory(category);
     }
 
     @PostMapping("/del/{id}")
-    public Category deleteCategoryById(@PathVariable int id) {
-        return categoryService.deleteCategoryById(id);
+    public ResponseEntity<CategoryH> deleteCategoryById(@PathVariable int id) {
+        return categoryServiceH.deleteCategoryById(id);
     }
 }
