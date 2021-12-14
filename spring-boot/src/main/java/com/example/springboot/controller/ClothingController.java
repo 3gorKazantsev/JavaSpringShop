@@ -1,8 +1,10 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.model.jdbc.Clothing;
+import com.example.springboot.model.hibernate.ClothingH;
+import com.example.springboot.service.hibernate.ClothingServiceH;
 import com.example.springboot.service.jdbc.ClothingService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,29 +16,30 @@ import java.util.UUID;
 public class ClothingController {
 
     private final ClothingService clothingService;
+    private final ClothingServiceH clothingServiceH;
 
     @GetMapping()
-    public List<Clothing> getAllClothing() {
-        return clothingService.getAllClothing();
+    public ResponseEntity<List<ClothingH>> getAllClothing() {
+        return clothingServiceH.getAllClothing();
     }
 
     @GetMapping("/{id}")
-    public Clothing getClothingById(@PathVariable UUID id) {
-        return clothingService.getClothingById(id);
+    public ResponseEntity<ClothingH> getClothingById(@PathVariable UUID id) {
+        return clothingServiceH.getClothingById(id);
     }
 
     @PostMapping("/new")
-    public Clothing createClothing(@RequestBody Clothing clothing) {
-        return clothingService.createClothing(clothing);
+    public ResponseEntity<ClothingH> createClothing(@RequestBody ClothingH clothing) {
+        return clothingServiceH.createClothing(clothing);
     }
 
     @PostMapping("/upd")
-    public Clothing updateClothing(@RequestBody Clothing clothing) {
-        return clothingService.updateCategory(clothing);
+    public ResponseEntity<ClothingH> updateClothing(@RequestBody ClothingH clothing) {
+        return clothingServiceH.updateClothing(clothing);
     }
 
     @PostMapping("/del/{id}")
-    public Clothing deleteClothingById(@PathVariable UUID id) {
-        return clothingService.deleteClothingById(id);
+    public ResponseEntity<ClothingH> deleteClothingById(@PathVariable UUID id) {
+        return clothingServiceH.deleteClothingById(id);
     }
 }

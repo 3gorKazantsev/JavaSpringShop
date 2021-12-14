@@ -14,7 +14,7 @@ public class FootwearService {
 
     private final FootwearDao footwearDao;
 
-    public List<Footwear> getAllClothing() {
+    public List<Footwear> getAllFootwear() {
         return footwearDao.getAll();
     }
 
@@ -22,7 +22,7 @@ public class FootwearService {
         return footwearDao.getById(id);
     }
 
-    public Footwear createClothing(Footwear footwear) {
+    public Footwear createFootwear(Footwear footwear) {
         return footwearDao.create(footwear);
     }
 

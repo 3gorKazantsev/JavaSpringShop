@@ -1,8 +1,10 @@
 package com.example.springboot.controller;
 
-import com.example.springboot.model.jdbc.Footwear;
+import com.example.springboot.model.hibernate.FootwearH;
+import com.example.springboot.service.hibernate.FootwearServiceH;
 import com.example.springboot.service.jdbc.FootwearService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,29 +16,30 @@ import java.util.UUID;
 public class FootwearController {
 
     private final FootwearService footwearService;
+    private final FootwearServiceH footwearServiceH;
 
     @GetMapping()
-    public List<Footwear> getAllFootwear() {
-        return footwearService.getAllClothing();
+    public ResponseEntity<List<FootwearH>> getAllFootwear() {
+        return footwearServiceH.getAllFootwear();
     }
 
     @GetMapping("/{id}")
-    public Footwear getFootwearById(@PathVariable UUID id) {
-        return footwearService.getFootwearById(id);
+    public ResponseEntity<FootwearH> getFootwearById(@PathVariable UUID id) {
+        return footwearServiceH.getFootwearById(id);
     }
 
     @PostMapping("/new")
-    public Footwear addFootwear(@RequestBody Footwear footwear) {
-        return footwearService.createClothing(footwear);
+    public ResponseEntity<FootwearH> addFootwear(@RequestBody FootwearH footwear) {
+        return footwearServiceH.createFootwear(footwear);
     }
 
     @PostMapping("/upd")
-    public Footwear updateFootwear(@RequestBody Footwear footwear) {
-        return footwearService.updateFootwear(footwear);
+    public ResponseEntity<FootwearH> updateFootwear(@RequestBody FootwearH footwear) {
+        return footwearServiceH.updateFootwear(footwear);
     }
 
     @PostMapping("/del/{id}")
-    public Footwear deleteFootwearById(@PathVariable UUID id) {
-        return footwearService.deleteFootwearById(id);
+    public ResponseEntity<FootwearH> deleteFootwearById(@PathVariable UUID id) {
+        return footwearServiceH.deleteFootwearById(id);
     }
 }

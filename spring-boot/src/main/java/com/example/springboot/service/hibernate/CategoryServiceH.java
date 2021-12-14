@@ -16,6 +16,7 @@ public class CategoryServiceH {
 
     private final CategoryRepository categoryRepository;
 
+    // get all
     public ResponseEntity<List<CategoryH>> getAllCategory() {
         List<CategoryH> categories = categoryRepository.findAll();
 
@@ -25,6 +26,7 @@ public class CategoryServiceH {
             return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 
+    // get by id
     public ResponseEntity<CategoryH> getCategoryById(Integer id) {
         Optional<CategoryH> category = categoryRepository.findById(id);
 
@@ -34,10 +36,12 @@ public class CategoryServiceH {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    // create
     public ResponseEntity<CategoryH> createCategory(CategoryH category) {
         return new ResponseEntity<>(categoryRepository.save(category), HttpStatus.CREATED);
     }
 
+    // update
     public ResponseEntity<CategoryH> updateCategory(CategoryH category) {
         if (categoryRepository.findById(category.getId()).isPresent())
             return new ResponseEntity<>(categoryRepository.save(category), HttpStatus.OK);
@@ -45,6 +49,7 @@ public class CategoryServiceH {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
+    // delete
     public ResponseEntity<CategoryH> deleteCategoryById(int id) {
         try {
             categoryRepository.deleteById(id);
