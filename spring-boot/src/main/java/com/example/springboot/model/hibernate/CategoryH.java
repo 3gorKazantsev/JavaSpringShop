@@ -1,13 +1,13 @@
 package com.example.springboot.model.hibernate;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @Table(name = "category")
 public class CategoryH {
 
@@ -18,4 +18,8 @@ public class CategoryH {
 
     @Column(name = "name")
     private String name;
+
+    public CategoryH(String name) {
+        this.name = name;
+    }
 }

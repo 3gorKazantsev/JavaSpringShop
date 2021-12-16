@@ -1,3 +1,4 @@
+/*
 package com.example.springboot.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -15,4 +16,4 @@ public class SpringJdbcConfig {
     public DataSource dataSource() {
         return new DriverManagerDataSource();
     }
-}
+}*/
